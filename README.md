@@ -86,7 +86,7 @@ The application will start on `http://localhost:8005`
 ## 📦 Project Structure
 
 ```
-short-url-practice/
+short-url-authentication/
 ├── controllers/
 │   ├── url.js          # URL shortening logic
 │   └── user.js         # User authentication logic
@@ -99,14 +99,17 @@ short-url-practice/
 │   ├── staticRoute.js  # Static page routes
 │   ├── url.js          # URL-related routes
 │   └── user.js         # User authentication routes
+├── screenshots/        # Application screenshots
 ├── views/
 │   ├── home.ejs        # Home/Dashboard page
 │   ├── signin.ejs      # Sign in page
 │   └── signup.ejs      # Sign up page
+├── .gitignore          # Git ignore file
 ├── connection.js       # Database connection
 ├── hashmap.js          # Session management
 ├── index.js            # Main application file
-└── package.json        # Dependencies
+├── package.json        # Dependencies
+└── README.md           # Project documentation
 ```
 
 ## 🔧 Configuration
