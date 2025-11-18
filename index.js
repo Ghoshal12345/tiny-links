@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import express from 'express';
 import connectDB from './connection.js';
 import urlRouter from './routes/url.js';
@@ -7,7 +8,6 @@ import staticRouter from './routes/staticRoute.js';
 import path from 'path';
 import userRouter from './routes/user.js'
 const app= express();
-const PORT = 8005;
 app.use(cookieParser());
 
 // Database connection
@@ -27,4 +27,4 @@ app.use('/',checkAuth, staticRouter);
 app.use('/user',  userRouter);
 
 // server connection
-app.listen(PORT, ()=>{ console.log("server started on port ", PORT)});
+app.listen(process.env.PORT, ()=>{ console.log("server started on port ", process.env.PORT)});

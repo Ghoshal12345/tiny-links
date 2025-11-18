@@ -1,11 +1,11 @@
 // here we will check authenticated user
-import { handleGetUser } from "../hashmap.js";
+import { handleGetUser } from "../auth.js";
 async function handleCheckAuthentication(req, res, next) {
-    const cookie= req.cookies.sessionId;
-    if(!cookie){
+    const token= req.cookies.uid;
+    if(!token){
         res.status(401).redirect('/signin');
     }
-    const user= handleGetUser(cookie);
+    const user= handleGetUser(token);
     if(!user){
         res.status(401).redirect('/signin');
     }
@@ -14,9 +14,9 @@ async function handleCheckAuthentication(req, res, next) {
 }
 
 async function checkAuth(req, res, next) {
-    const cookie= req.cookies.sessionId;
+    const token= req.cookies.uid;
     
-    const user= handleGetUser(cookie);
+    const user= handleGetUser(token);
     
     req.user= user;
     next();

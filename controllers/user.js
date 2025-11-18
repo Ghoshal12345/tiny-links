@@ -1,6 +1,6 @@
 import USER from "../models/user.js";
 import { v4 as uuidv4 } from 'uuid';
-import { handleSetUser } from "../hashmap.js";
+import { handleSetUser } from "../auth.js";
 
 async function handleUserSignup(req, res) {
     const {name, email, password}= req.body;
@@ -17,9 +17,8 @@ async function handleUserSignin(req, res) {
     if(!user){
         return res.status(401).render('signin', {message: "Invalid credentials"});
     }
-    const sessionId= uuidv4();
-    handleSetUser(sessionId, user);
-    res.cookie('sessionId', sessionId);
+    const token = handleSetUser(user);
+    res.cookie('uid', token);
     return res.status(200).redirect('/');
 }
 
