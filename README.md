@@ -257,7 +257,7 @@ This project is licensed under the ISC License.
 **Your Name**
 
 - [GitHub](https://github.com/Ghoshal12345)
-- [LinkedIn]([https://linkedin.com/in/yourprofile](https://www.linkedin.com/in/ghoshalsingh/))
+- [LinkedIn](https://www.linkedin.com/in/ghoshalsingh/)
 
 ## 🙏 Acknowledgments
 
