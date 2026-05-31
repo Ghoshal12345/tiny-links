@@ -3,10 +3,11 @@ import express from 'express';
 import connectDB from './connection.js';
 import urlRouter from './routes/url.js';
 import cookieParser from 'cookie-parser';
-import {handleCheckAuthentication,checkAuth} from './middlewares/user.js';
+import {checkForAuthentication,restrictToAuthenticatedUsers} from './middlewares/user.js';
 import staticRouter from './routes/staticRoute.js';
 import path from 'path';
 import userRouter from './routes/user.js'
+
 const app= express();
 app.use(cookieParser());
 
@@ -21,10 +22,15 @@ app.set('views', path.resolve('./views'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.json());
 
+// Check authentication first
+app.use(checkForAuthentication);
+
 // routes
-app.use('/url', handleCheckAuthentication, urlRouter);
-app.use('/',checkAuth, staticRouter);
-app.use('/user',  userRouter);
+app.use('/url', restrictToAuthenticatedUsers, urlRouter);
+app.use('/', staticRouter);
+app.use('/user', userRouter);
+
 
 // server connection
-app.listen(process.env.PORT, ()=>{ console.log("server started on port ", process.env.PORT)});
+const PORT = process.env.PORT || 8005;
+app.listen(PORT, ()=>{ console.log("server started on port ", PORT)});

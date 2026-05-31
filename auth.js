@@ -7,7 +7,7 @@ function handleSetUser(user) {
         _id: user._id,
         email: user.email,
         name: user.name,
-    }, secretKey);
+    }, secretKey, );
 }
 
 function handleGetUser(token) {
@@ -17,7 +17,6 @@ function handleGetUser(token) {
     }catch(err){
         return null;
     }
-    
 }
 
 export{

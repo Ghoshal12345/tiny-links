@@ -139,12 +139,12 @@
             <button type="submit">✨ Generate Short URL</button>
         </form>
         
-        <% if (locals.id) { %>
+        <!-- <% if (locals.id) { %>
             <div class="result">
                 <p>✅ Your shortened URL:</p>
                 <a class="short-url" href="http://localhost:8005/url/<%= locals.id %>">http://localhost:8005/url/<%= locals.id %></a>
             </div>
-        <% } %>
+        <% } %> -->
         
         <div class="nav-links">
             <a href="/signin">Sign In</a>
@@ -158,7 +158,8 @@
                 <ul>
                     <% locals.urls.forEach(url => { %>
                         <li>
-                            <a target="_blank" class="short-url" href="http://localhost:8005/url/<%= url.shortId %>">http://localhost:8005/url/<%= url.shortId %></a>
+                            <p>clicks: <%= url.visitHistory.length %></p>
+                            <a target="_blank" class="short-url" href="/url/<%= url.shortId %>">http://localhost:8005/url/<%= url.shortId %></a>
                         </li>
                     <% }) %>
                 </ul>
