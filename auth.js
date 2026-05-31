@@ -7,7 +7,7 @@ function handleSetUser(user) {
         _id: user._id,
         email: user.email,
         name: user.name,
-    }, secretKey, );
+    }, secretKey, {expiresIn: '15m'});
 }
 
 function handleGetUser(token) {
