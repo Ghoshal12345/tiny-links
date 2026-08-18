@@ -14,7 +14,7 @@ function checkForAuthentication(req, res, next) {
     next();
 }
 
-// * Middleware to restrict access to authenticated users only--means authorization 
+// * Middleware to restrict access to authenticated users only----means authorization 
 function restrictToAuthenticatedUsers(req, res, next) {
     if (!req.user) {
         return res.status(401).redirect('/signin');

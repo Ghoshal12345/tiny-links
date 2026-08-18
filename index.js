@@ -12,7 +12,7 @@ const app= express();
 app.use(cookieParser());
 
 // Database connection
-connectDB("mongodb://127.0.0.1:27017/short-url-practice");
+connectDB("mongodb://127.0.0.1:27017/short-url-practice");//offline mongodb not mongodb atlas
 
 // view engine
 app.set('view engine', 'ejs');
